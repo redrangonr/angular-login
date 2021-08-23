@@ -1,0 +1,49 @@
+<div>
+  <form [formGroup]="userForm">
+    <table >
+      <tr>
+        <td>Email</td>
+        <td><input type="text" formControlName="email"></td>
+        <td ><p *ngIf="userForm.get('email').errors?.required">Email trong</p> <p *ngIf="userForm.get('email').errors?.pattern">Email sai</p> </td>
+
+      </tr>
+      <tr>
+        <td>Password</td>
+        <td><input type="text" formControlName="password"></td>
+        <td *ngIf="userForm.get('password').errors?.required">Passord trong</td>
+      </tr>
+      <tr>
+        <td>Confirm password</td>
+        <td><input type="password" formControlName="confirmPassword"></td>
+        <td *ngIf="userForm.value.password != userForm.value.confirmPassword">Password ko trung</td>
+      </tr>
+      <tr>
+        <td>Country</td>
+        <td>
+          <select type="text" formControlName="country">
+            <option *ngFor="let c of country">{{c}}</option>
+          </select>
+        </td>
+        <td></td>
+
+      </tr>
+      <tr>
+        <td>Age</td>
+        <td><input type="text" formControlName="age"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Gender</td>
+        <td><input type="text" formControlName="gender"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Phone</td>
+        <td><input type="text" formControlName="phone"></td>
+        <td></td>
+      </tr>
+    </table>
+<!--    <button  (click)="createUser()" value="submit" type="submit">Create</button>-->
+  </form>
+  <p>{{userForm.value | json}}</p>
+</div>

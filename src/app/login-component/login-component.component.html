@@ -1,0 +1,18 @@
+<div>
+  <form [formGroup]="loginForm">
+    <table>
+      <tr>
+        <td>Email</td>
+        <td><input type="text" formControlName="email1"></td>
+        <td><p *ngIf="loginForm.get('email1').errors?.required">Email trong</p> <p *ngIf="loginForm.get('email1').errors?.pattern"> Email ko hop le</p></td>
+      </tr>
+      <tr>
+        <td>Password</td>
+        <td><input type="text" formControlName="password1"></td>
+        <td ><p *ngIf="loginForm.get('password1').errors?.required" > ko dc trong</p><p *ngIf="loginForm.get('password1').errors?.minLength">phai 6 ki tu</p></td>
+      </tr>
+    </table>
+<button (click)="Create()" value="submit" type="submit"> Create</button>
+  </form>
+  <p>{{loginForm.value | json}}</p>
+</div>
